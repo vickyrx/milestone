@@ -1,0 +1,71 @@
+MySQL MCQ’s
+—-------------------
+
+1.Which of the following is true about MySQL?
+A) Easy to use
+B)  Scalable
+C)  High Flexibility
+D) All of the above
+ANSWER: D) All of the above
+
+2.MySQL is .................
+A) A Programming language
+B) A technique for writing reliable programs
+C) A Relational Database Management System
+D) None of Above
+ANSWER: C) A Relational Database Management System
+
+3.Which of the following is not supported by MySQL?
+A) Table Joining
+B) Stored Procedures
+C) Regular Expression Matching
+D) Temporary (Hash) Tables
+ANSWER: D) Temporary (Hash) Tables
+
+4.Commands passed to the MySQL daemon are written in ..............
+A) Swedish
+B) MySql Language
+C)  English
+D) None of the above
+ANSWER: C)  English
+
+5.Which of these commands will delete a table called xyz?
+A) DROP XYZ
+B)  DROP TABLE XYZ
+C) DELETE XYZ WHERE Confirm = "YES"
+D) DROP XYZ WHERE Confirm = "YES"
+ANSWER: B)  DROP TABLE XYZ
+
+6.The main MySQL program that does all the data handling is called
+A) Httpd
+B) MySQL
+C) MySQLID
+D) Mysql.exe
+ANSWER: D) Mysql.exe
+
+7.Which "text Type" Has The Maximum Number Of Bytes?
+A) Text
+B) Tiny Text
+C) Long Text
+D) Medium Text
+ANSWER: C) Long Text
+
+8.Which of these field types would be best to hold a .jpg image?
+A) text
+B) blob
+C) nchar binary
+D) char binary
+ANSWER: B) blob
+
+
+9.In a like clause, you can ask for any 6 letter value by writing
+A) LIKE .{6}
+B) LIKE ^.{6}$
+C) LIKE ??????
+D) LIKE ______ (that's Six Underscore Characters)
+ANSWER: C) LIKE ??????
+
+
+
+
+
