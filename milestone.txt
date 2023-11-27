@@ -1,0 +1,107 @@
+mysql> create database teacher;
+Query OK, 1 row affected (0.02 sec)
+
+mysql> create table teachers_dets(tid int,name varchar(20),dept varchar(20),salary int,gender varchar(20));
+ERROR 1046 (3D000): No database selected
+mysql> use teacher;
+Database changed
+mysql> create table teachers_dets(tid int,name varchar(20),dept varchar(20),salary int,gender varchar(20));
+Query OK, 0 rows affected (0.06 sec)
+
+mysql> insert into teachers_dets values(1,'vignesh','English',20000,'male'),(2,'Harini','Accountancy',18000,'female'),(3,'Bhuvanesh','computer',22000,'male'),(4,'divya','history',13000,'female'),(5,'kavin','Tmil',18000,'male');
+Query OK, 5 rows affected (0.01 sec)
+Records: 5  Duplicates: 0  Warnings: 0
+
+mysql> select*from teachers where dept='history';
+ERROR 1146 (42S02): Table 'teacher.teachers' doesn't exist
+mysql> select*from teachers_dets where dept='history';
++------+-------+---------+--------+--------+
+| tid  | name  | dept    | salary | gender |
++------+-------+---------+--------+--------+
+|    4 | divya | history |  13000 | female |
++------+-------+---------+--------+--------+
+1 row in set (0.00 sec)
+
+mysql> alter table teachers_dets add doa date after salary;
+Query OK, 0 rows affected (0.02 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> update teachers_dets set doa='2023-11-01' where tid=1;
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update teachers_dets set doa='2023-11-10' where tid=2;
+Query OK, 1 row affected (0.01 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update teachers_dets set doa='2023-11-17' where tid=3;
+Query OK, 1 row affected (0.01 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update teachers_dets set doa='2023-11-24' where tid=4;
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update teachers_dets set doa='2023-11-30' where tid=5;
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select name,doa from teachers_dets order by doa ASC;
++-----------+------------+
+| name      | doa        |
++-----------+------------+
+| vignesh   | 2023-11-01 |
+| Harini    | 2023-11-10 |
+| Bhuvanesh | 2023-11-17 |
+| divya     | 2023-11-24 |
+| kavin     | 2023-11-30 |
++-----------+------------+
+5 rows in set (0.00 sec)
+
+mysql> select name,dept,salary from teachers_dets where gender='male';
++-----------+----------+--------+
+| name      | dept     | salary |
++-----------+----------+--------+
+| vignesh   | English  |  20000 |
+| Bhuvanesh | computer |  22000 |
+| kavin     | Tmil     |  18000 |
++-----------+----------+--------+
+3 rows in set (0.00 sec)
+
+mysql> select count(salary) from teachers_dets where salary<10000;
++---------------+
+| count(salary) |
++---------------+
+|             0 |
++---------------+
+1 row in set (0.01 sec)
+
+mysql> insert into teachers_dett values(8,'mersha','computer',12000,'2023-11-26','female');
+ERROR 1146 (42S02): Table 'teacher.teachers_dett' doesn't exist
+mysql> insert into teachers_dets values(8,'mersha','computer',12000,'2023-11-26','female');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> select min(salary) from teachers_dets;
++-------------+
+| min(salary) |
++-------------+
+|       12000 |
++-------------+
+1 row in set (0.01 sec)
+
+mysql> select * from teachers_dets where salary= (select min(salary)from teachers_dets where salary> (select min(salary)from teachers_dets));
++------+-------+---------+--------+------------+--------+
+| tid  | name  | dept    | salary | doa        | gender |
++------+-------+---------+--------+------------+--------+
+|    4 | divya | history |  13000 | 2023-11-24 | female |
++------+-------+---------+--------+------------+--------+
+1 row in set (0.00 sec)
+
+mysql> select avg(salary) from teachers_dets where dept='history';
++-------------+
+| avg(salary) |
++-------------+
+|  13000.0000 |
++-------------+
+1 row in set (0.01 sec)
+
