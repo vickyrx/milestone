@@ -1,0 +1,289 @@
+Write a MongoDB query to display at least 10 details of the documents of  book_id,
+ Btitle, authors in array and price for all the documents in the collection Bookstore. 
+-------------------------------------------------------------------------------------------
+
+ db.Bookstore.insertMany([{book_id: 1,Btitle: "accounts",authors: ["reddy", "murthy"], price: 1200},{book_id: 2,Btitle: "computer science",authors: ["santa", "sandy"], price: 1800},{book_id: 3,Btitle: "science",authors: ["sam", "peter"], price: 1900},{book_id: 4,Btitle: "history",authors: ["Ashok", "Ashif"], price: 2200},{book_id: 5,Btitle: "geography",authors: ["muthukumar", "sakthivel"], price: 3000},{book_id: 6,Btitle: "C++",authors: ["mathew", "jhon"], price: 5000},{book_id: 7,Btitle: "ethics of cricket",authors: ["sachin", "ganguly"], price: 4500},{book_id: 8,Btitle: "wrestlers bio",authors: ["cena", "yim"], price: 3400},{book_id: 9,Btitle: "t20 match",authors: ["ruturaj", "pat kummins"], price: 2345},{book_id: 10,Btitle: "civics",authors: ["thilaga", "divya"], price: 3425}])
+{
+  acknowledged: true,
+  insertedIds: {
+    '0': ObjectId('6564372beb25472899e04018'),
+    '1': ObjectId('6564372beb25472899e04019'),
+    '2': ObjectId('6564372beb25472899e0401a'),
+    '3': ObjectId('6564372beb25472899e0401b'),
+    '4': ObjectId('6564372beb25472899e0401c'),
+    '5': ObjectId('6564372beb25472899e0401d'),
+    '6': ObjectId('6564372beb25472899e0401e'),
+    '7': ObjectId('6564372beb25472899e0401f'),
+    '8': ObjectId('6564372beb25472899e04020'),
+    '9': ObjectId('6564372beb25472899e04021')
+  }
+}
+
+ Write a MongoDB query to display the fields Btitle,  authors and price but exclude the 
+bookid for all the documents in the collection Bookstore. 
+
+--------------------------------------------------------------------------------------------
+
+ db.Bookstore.find({}, { Btitle: 1, authors: 1, price: 1, _id: 0 })
+[
+  { Btitle: 'accounts', authors: [ 'reddy', 'murthy' ], price: 1200 },
+  {
+    Btitle: 'computer science',
+    authors: [ 'santa', 'sandy' ],
+    price: 1800
+  },
+  { Btitle: 'science', authors: [ 'sam', 'peter' ], price: 1900 },
+  { Btitle: 'history', authors: [ 'Ashok', 'Ashif' ], price: 2200 },
+  {
+    Btitle: 'geography',
+    authors: [ 'muthukumar', 'sakthivel' ],
+    price: 3000
+  },
+  { Btitle: 'C++', authors: [ 'mathew', 'jhon' ], price: 5000 },
+  {
+    Btitle: 'ethics of cricket',
+    authors: [ 'sachin', 'ganguly' ],
+    price: 4500
+  },
+  { Btitle: 'wrestlers bio', authors: [ 'cena', 'yim' ], price: 3400 },
+  {
+    Btitle: 't20 match',
+    authors: [ 'ruturaj', 'pat kummins' ],
+    price: 2345
+  },
+  { Btitle: 'civics', authors: [ 'thilaga', 'divya' ], price: 3425 }
+]
+
+ Write a MongoDB query to display the first 3 books based on similar authors.
+------------------------------------------------------------------------------------
+
+ db.Bookstore.find({ authors: { $size: 2 } }).limit(3)
+[
+  {
+    _id: ObjectId('6564372beb25472899e04018'),
+    book_id: 1,
+    Btitle: 'accounts',
+    authors: [ 'reddy', 'murthy' ],
+    price: 1200
+  },
+  {
+    _id: ObjectId('6564372beb25472899e04019'),
+    book_id: 2,
+    Btitle: 'computer science',
+    authors: [ 'santa', 'sandy' ],
+    price: 1800
+  },
+  {
+    _id: ObjectId('6564372beb25472899e0401a'),
+    book_id: 3,
+    Btitle: 'science',
+    authors: [ 'sam', 'peter' ],
+    price: 1900
+  }
+]
+
+Write a MongoDB query to find the book price more than 1500.
+------------------------------------------------------------------
+
+ db.Bookstore.find({ price: { $gt: 1500 } })
+[
+  {
+    _id: ObjectId('6564372beb25472899e04019'),
+    book_id: 2,
+    Btitle: 'computer science',
+    authors: [ 'santa', 'sandy' ],
+    price: 1800
+  },
+  {
+    _id: ObjectId('6564372beb25472899e0401a'),
+    book_id: 3,
+    Btitle: 'science',
+    authors: [ 'sam', 'peter' ],
+    price: 1900
+  },
+  {
+    _id: ObjectId('6564372beb25472899e0401b'),
+    book_id: 4,
+    Btitle: 'history',
+    authors: [ 'Ashok', 'Ashif' ],
+    price: 2200
+  },
+  {
+    _id: ObjectId('6564372beb25472899e0401c'),
+    book_id: 5,
+    Btitle: 'geography',
+    authors: [ 'muthukumar', 'sakthivel' ],
+    price: 3000
+  },
+  {
+    _id: ObjectId('6564372beb25472899e0401d'),
+    book_id: 6,
+    Btitle: 'C++',
+    authors: [ 'mathew', 'jhon' ],
+    price: 5000
+  },
+  {
+    _id: ObjectId('6564372beb25472899e0401e'),
+    book_id: 7,
+    Btitle: 'ethics of cricket',
+    authors: [ 'sachin', 'ganguly' ],
+    price: 4500
+  },
+  {
+    _id: ObjectId('6564372beb25472899e0401f'),
+    book_id: 8,
+    Btitle: 'wrestlers bio',
+    authors: [ 'cena', 'yim' ],
+    price: 3400
+  },
+  {
+    _id: ObjectId('6564372beb25472899e04020'),
+    book_id: 9,
+    Btitle: 't20 match',
+    authors: [ 'ruturaj', 'pat kummins' ],
+    price: 2345
+  },
+  {
+    _id: ObjectId('6564372beb25472899e04021'),
+    book_id: 10,
+    Btitle: 'civics',
+    authors: [ 'thilaga', 'divya' ],
+    price: 3425
+  }
+]
+
+
+ Write a MongoDB query to find the book title who's price is  more than 800 but less
+ than 2000.
+--------------------------------------------------------------------------------------------
+
+ db.Bookstore.find({ price: { $gt: 800, $lt: 2000 } }, { Btitle: 1 })
+[
+  { _id: ObjectId('6564372beb25472899e04018'), Btitle: 'accounts' },
+  {
+    _id: ObjectId('6564372beb25472899e04019'),
+    Btitle: 'computer science'
+  },
+  { _id: ObjectId('6564372beb25472899e0401a'), Btitle: 'science' }
+]
+
+
+
+ Write a MongoDB query to arrange the book name of the bookstore in ascending 
+order along with all the columns.
+----------------------------------------------------------------------------------
+test> db.Bookstore.find().sort({ Btitle: 1 })
+[
+  {
+    _id: ObjectId('6564372beb25472899e0401d'),
+    book_id: 6,
+    Btitle: 'C++',
+    authors: [ 'mathew', 'jhon' ],
+    price: 5000
+  },
+  {
+    _id: ObjectId('6564372beb25472899e04018'),
+    book_id: 1,
+    Btitle: 'accounts',
+    authors: [ 'reddy', 'murthy' ],
+    price: 1200
+  },
+  {
+    _id: ObjectId('6564372beb25472899e04021'),
+    book_id: 10,
+    Btitle: 'civics',
+    authors: [ 'thilaga', 'divya' ],
+    price: 3425
+  },
+  {
+    _id: ObjectId('6564372beb25472899e04019'),
+    book_id: 2,
+    Btitle: 'computer science',
+    authors: [ 'santa', 'sandy' ],
+    price: 1800
+  },
+  {
+    _id: ObjectId('6564372beb25472899e0401e'),
+    book_id: 7,
+    Btitle: 'ethics of cricket',
+    authors: [ 'sachin', 'ganguly' ],
+    price: 4500
+  },
+  {
+    _id: ObjectId('6564372beb25472899e0401c'),
+    book_id: 5,
+    Btitle: 'geography',
+    authors: [ 'muthukumar', 'sakthivel' ],
+    price: 3000
+  },
+  {
+    _id: ObjectId('6564372beb25472899e0401b'),
+    book_id: 4,
+    Btitle: 'history',
+    authors: [ 'Ashok', 'Ashif' ],
+    price: 2200
+  },
+  {
+    _id: ObjectId('6564372beb25472899e0401a'),
+    book_id: 3,
+    Btitle: 'science',
+    authors: [ 'sam', 'peter' ],
+    price: 1900
+  },
+  {
+    _id: ObjectId('6564372beb25472899e04020'),
+    book_id: 9,
+    Btitle: 't20 match',
+    authors: [ 'ruturaj', 'pat kummins' ],
+    price: 2345
+  },
+  {
+    _id: ObjectId('6564372beb25472899e0401f'),
+    book_id: 8,
+    Btitle: 'wrestlers bio',
+    authors: [ 'cena', 'yim' ],
+    price: 3400
+  }
+]
+
+
+ Write a MongoDB query to know whether the author in the authors list.
+--------------------------------------------------------------------------
+ db.Bookstore.find({ authors: "sam" })
+[
+  {
+    _id: ObjectId('6564372beb25472899e0401a'),
+    book_id: 3,
+    Btitle: 'science',
+    authors: [ 'sam', 'peter' ],
+    price: 1900
+  }
+]
+
+Write a MongoDB query to update & increase the book price Rs.500 in all
+ book name as "MongoDB Practice".
+--------------------------------------------------------------------------------
+ db.Bookstore.updateMany({ Btitle: "wrestlers bio" }, { $inc: { price: 500 } })
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 1,
+  modifiedCount: 1,
+  upsertedCount: 0
+}
+
+Write a MongoDB query to use Update modifiers
+ ($set, $push,  $pull,  $setOnInsert,$upsert) in bookstore.
+-------------------------------------------------------------
+
+
+
+db.Book.update({Btittle:"t20 match"},{$set:{price:5000}},{$push:{author:"pat kummins"}},{$pull:{author:"ruturaj"}},{$setOnInsert:{book_id:9}},{upsert:true})
+DeprecationWarning: Collection.update() is deprecated. Use updateOne, updateMany, or bulkWrite.
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 0,
+  modifiedCount: 0,
+  upsertedCount: 0
+}
