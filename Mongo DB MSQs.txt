@@ -1,0 +1,73 @@
+MongoDB MCQ’s
+—--------------------
+
+1. Which of the following is a NoSQL database?
+a) MySQL
+b) MongoDB
+c) Oracle
+d) SQL Server
+ANSWER: b) MongoDB
+
+2. What is sharding in MongoDB?
+a) Splitting a database into smaller, more manageable pieces called shards
+b) Combining multiple databases into a single, unified database
+c) Creating a backup copy of a database for disaster recovery purposes
+d) None of the above
+ANSWER:a) Splitting a database into smaller, more manageable pieces called shards
+
+3. What is a BSON in MongoDB?
+a) A type of data structure used to store data in MongoDB
+b) A query language used to retrieve data from MongoDB
+c) A command used to create a new database in MongoDB
+d) None of the above
+ANSWER: a) A type of data structure used to store data in MongoDB
+
+4. Which of the following is a collection in MongoDB?
+a) A group of related documents
+b) A group of related tables
+c) A group of related fields
+d) None of the above
+ANSWER: a) A group of related documents
+
+5. What is a replica set in MongoDB?
+a) A group of MongoDB instances that maintain the same data set
+b) A type of query used to retrieve data from MongoDB
+c) A type of index used to improve query performance
+d) None of the above
+ANSWER: a) A group of MongoDB instances that maintain the same data set
+
+6. Which of the following is a command used to create a new database in MongoDB?
+a) INSERT
+b) UPDATE
+c) DELETE
+d) None of the above
+ANSWER: d) None of the above
+
+7.What is the use of the $push operator in MongoDB?
+a) To add a new document to a collection
+b) To add a new field to a document
+c) To add an element to the end of an array
+d) None of the above
+ANSWER: c) To add an element to the end of an array
+
+8.What is the use of the $inc operator in MongoDB?
+a) To increment the value of a field by a specified amount
+b) To insert a new document into a collection
+c) To remove a field from a document
+d) None of the above
+ANSWER: a) To increment the value of a field by a specified amount
+
+9. What is the use of the $set operator in MongoDB?
+a) To set the value of a field in a document
+b) To insert a new document into a collection
+c) To remove a field from a document
+d) None of the above
+ANSWER: a) To set the value of a field in a document
+
+10. What is the use of the $skip operator in MongoDB?
+a) To sort the documents in a collection
+b) To group documents in a collection based on a specified condition
+c) To skip a specified number of documents in the result set
+d) None of the above
+ANSWER: c) To skip a specified number of documents in the result set
+
